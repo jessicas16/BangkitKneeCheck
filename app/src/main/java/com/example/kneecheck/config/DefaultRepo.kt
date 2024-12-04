@@ -7,7 +7,6 @@ import com.example.kneecheck.entity.dashboardDokter
 import com.example.kneecheck.entity.loginDTO
 import com.example.kneecheck.entity.registerDokterDTO
 import com.example.kneecheck.entity.registerPasienDTO
-import com.example.kneecheck.pasien.LandingPageResponse
 
 class DefaultRepo (
     private val dataSourceRemote : ApiService,
@@ -33,9 +32,5 @@ class DefaultRepo (
     suspend fun getDashboard(token: String): dashboardDokter{
         Log.e("DefaultRepo WOOEE", dataSourceRemote.getDashboard(token).toString())
         return dataSourceRemote.getDashboard(token)
-    }
-
-    suspend fun fetchLandingPage(token: String): LandingPageResponse {
-        return dataSourceRemote.getLandingPage(token)
     }
 }

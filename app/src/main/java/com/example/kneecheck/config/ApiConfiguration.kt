@@ -16,7 +16,7 @@ class ApiConfiguration{
                 .build()
 
             val retrofit = Retrofit.Builder()
-                .baseUrl("https://kneecheck-app-91798386303.asia-southeast2.run.app/")
+                .baseUrl("https://kneecheck-app-expressjs-91798386303.asia-southeast2.run.app/")
                 .addConverterFactory(MoshiConverterFactory.create(moshi).asLenient())
                 .build()
 

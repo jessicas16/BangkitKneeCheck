@@ -18,4 +18,5 @@
     <string name="title_activity_bottom_navigation_pasien">BottomNavigationPasien</string>
     <string name="title_activity_dokter">DokterActivity</string>
     <string name="osteoarthritis">Osteoarthritis adalah peradangan kronis di sendi akibat kerusakan pada tulang rawan. Osteoarthritis adalah jenis arthritis atau radang sendi yang paling sering terjadi. Kondisi ini menyebabkan keluhan, seperti sendi-sendi terasa sakit, kaku, dan bengkak.</string>
+    <string name="title_activity_pasien">PasienActivity</string>
 </resources>
