@@ -74,11 +74,8 @@ class DashboardFragment : Fragment() {
                 }
             } catch (e:Exception){
                 Log.e("Error API DASHBOARD", e.message.toString())
-                Log.e("Error API DASHBOARD2", e.toString())
             }
         }
-
-
 
         return root
     }

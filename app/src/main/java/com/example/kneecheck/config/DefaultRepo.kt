@@ -3,15 +3,16 @@ package com.example.kneecheck.config
 import android.util.Log
 import com.example.kneecheck.entity.BasicDMLDRO
 import com.example.kneecheck.entity.BasicDRO
-import com.example.kneecheck.entity.ErrorDRO
 import com.example.kneecheck.entity.LoginDRO
 import com.example.kneecheck.entity.dashboardDokter
 import com.example.kneecheck.entity.landingPageDRO
 import com.example.kneecheck.entity.loginDTO
+import com.example.kneecheck.entity.predictDRO
 import com.example.kneecheck.entity.registerDokterDTO
 import com.example.kneecheck.entity.registerPasienDTO
 import com.example.kneecheck.entity.updatePasswordPasienDTO
 import com.example.kneecheck.entity.updateProfilePasienDTO
+import okhttp3.MultipartBody
 
 class DefaultRepo (
     private val dataSourceRemote : ApiService,
@@ -47,7 +48,11 @@ class DefaultRepo (
         return dataSourceRemote.updateProfilePasien(token, data)
     }
 
-    suspend fun updatePasswordPasien(token: String, data: updatePasswordPasienDTO): BasicDMLDRO{
+    suspend fun updatePasswordPasien(token: String, data: updatePasswordPasienDTO): BasicDMLDRO {
         return dataSourceRemote.updatePasswordPasien(token, data)
+    }
+
+    suspend fun predict(token: String, img: MultipartBody.Part): predictDRO {
+        return dataSourceRemote.predict(token, img)
     }
 }

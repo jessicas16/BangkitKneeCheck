@@ -76,3 +76,17 @@ data class ageDataLanding(
     val average: String,
     val total_kasus: Int
 )
+
+data class predictDRO(
+    val status: String,
+    val message: String,
+    val data: predictData
+)
+
+data class predictData(
+    val confidenceScore: Int,
+    val label: String,
+    val id_xray: String,
+    val img_path: String,
+    val pengobatan: String,
+)
