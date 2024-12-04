@@ -30,6 +30,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvHistoryPasien"
         android:layout_width="375dp"
         android:layout_height="620dp"
         android:layout_marginTop="1dp"

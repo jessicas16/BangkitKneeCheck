@@ -4,6 +4,7 @@ import android.util.Log
 import com.example.kneecheck.entity.BasicDMLDRO
 import com.example.kneecheck.entity.BasicDRO
 import com.example.kneecheck.entity.ErrorDRO
+import com.example.kneecheck.entity.HistoryPasienDRO
 import com.example.kneecheck.entity.LoginDRO
 import com.example.kneecheck.entity.dashboardDokter
 import com.example.kneecheck.entity.landingPageDRO
@@ -49,5 +50,9 @@ class DefaultRepo (
 
     suspend fun updatePasswordPasien(token: String, data: updatePasswordPasienDTO): BasicDMLDRO{
         return dataSourceRemote.updatePasswordPasien(token, data)
+    }
+
+    suspend fun getHistoryPasien(token: String): HistoryPasienDRO{
+        return dataSourceRemote.getHistoryPasien(token)
     }
 }
