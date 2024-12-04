@@ -1,10 +1,12 @@
 package com.example.kneecheck.dokter
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.kneecheck.LoginActivity
 import com.example.kneecheck.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
@@ -22,6 +24,12 @@ class ProfileFragment : Fragment() {
     ): View {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        binding.imgButtonLogoutDokter.setOnClickListener {
+            val intent = Intent(requireActivity(), LoginActivity::class.java)
+            startActivity(intent)
+            requireActivity().finish()
+        }
 
         return root
     }

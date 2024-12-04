@@ -3,6 +3,7 @@ package com.example.kneecheck.dokter
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,7 +31,8 @@ class DashboardFragment : Fragment() {
     private val ioScope: CoroutineScope = CoroutineScope(Dispatchers.IO)
     private val mainScope: CoroutineScope = CoroutineScope(Dispatchers.Main)
 
-    private lateinit var nama :String
+    private lateinit var id :String
+    private lateinit var name :String
     private lateinit var token :String
 
     override fun onCreateView(
@@ -42,10 +44,17 @@ class DashboardFragment : Fragment() {
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        binding.tvNamaDokter.text = "hailsdafjjlasdjhadsjksdaljkasdljkdasljksd"
+        id = requireActivity().intent.getStringExtra("id").toString()
+        name = requireActivity().intent.getStringExtra("name").toString()
+        token = requireActivity().intent.getStringExtra("token").toString()
+
+        binding.tvNamaDokter.text = name
 
         ioScope.launch {
-
+            val data = repo.getDashboard(token)
+            mainScope.launch {
+                Log.d("Dataaddasadasdasd", data.toString())
+            }
         }
 
         makePieChart()

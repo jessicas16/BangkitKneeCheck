@@ -33,7 +33,7 @@ class DefaultRepo (
         return dataSourceRemote.getDashboard(token)
     }
 
-    suspend fun fetchLandingPage(): LandingPageResponse {
-        return dataSourceRemote.getLandingPage()
+    suspend fun fetchLandingPage(token: String): LandingPageResponse {
+        return dataSourceRemote.getLandingPage(token)
     }
 }

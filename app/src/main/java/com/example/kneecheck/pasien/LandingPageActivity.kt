@@ -44,7 +44,7 @@ class LandingPageActivity : AppCompatActivity() {
         lifecycleScope.launch {
             try {
                 // Fetch data dari API
-                val data = repository.fetchLandingPage()
+                val data = repository.fetchLandingPage("sad")
 
                 // Update UI dengan data dari API
                 usiaTextView.text = "Usia: ${data.age.average} (${data.age.total_kasus})"
