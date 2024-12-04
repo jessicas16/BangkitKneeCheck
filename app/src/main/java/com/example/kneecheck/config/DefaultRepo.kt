@@ -1,13 +1,17 @@
 package com.example.kneecheck.config
 
 import android.util.Log
+import com.example.kneecheck.entity.BasicDMLDRO
 import com.example.kneecheck.entity.BasicDRO
+import com.example.kneecheck.entity.ErrorDRO
 import com.example.kneecheck.entity.LoginDRO
 import com.example.kneecheck.entity.dashboardDokter
 import com.example.kneecheck.entity.landingPageDRO
 import com.example.kneecheck.entity.loginDTO
 import com.example.kneecheck.entity.registerDokterDTO
 import com.example.kneecheck.entity.registerPasienDTO
+import com.example.kneecheck.entity.updatePasswordPasienDTO
+import com.example.kneecheck.entity.updateProfilePasienDTO
 
 class DefaultRepo (
     private val dataSourceRemote : ApiService,
@@ -37,5 +41,13 @@ class DefaultRepo (
 
     suspend fun getLandingPage(token: String): landingPageDRO{
         return dataSourceRemote.getLandingPage(token)
+    }
+
+    suspend fun updateProfilePasien(token: String, data: updateProfilePasienDTO): BasicDMLDRO{
+        return dataSourceRemote.updateProfilePasien(token, data)
+    }
+
+    suspend fun updatePasswordPasien(token: String, data: updatePasswordPasienDTO): BasicDMLDRO{
+        return dataSourceRemote.updatePasswordPasien(token, data)
     }
 }

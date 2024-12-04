@@ -9,6 +9,16 @@ data class BasicDRO(
     var data: Any?
 )
 
+data class ErrorDRO(
+    var status: String,
+    var message: String
+)
+
+data class BasicDMLDRO(
+    var status : String,
+    var message: String,
+)
+
 data class LoginDRO(
     var token : String,
     var userType : String,

@@ -1,5 +1,6 @@
 package com.example.kneecheck.config
 
+import com.example.kneecheck.entity.BasicDMLDRO
 import com.example.kneecheck.entity.BasicDRO
 import com.example.kneecheck.entity.LoginDRO
 import com.example.kneecheck.entity.dashboardDokter
@@ -7,14 +8,18 @@ import com.example.kneecheck.entity.landingPageDRO
 import com.example.kneecheck.entity.loginDTO
 import com.example.kneecheck.entity.registerDokterDTO
 import com.example.kneecheck.entity.registerPasienDTO
+import com.example.kneecheck.entity.updatePasswordPasienDTO
+import com.example.kneecheck.entity.updateProfilePasienDTO
+import okhttp3.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Header
+import retrofit2.http.PUT
 
 interface ApiService {
     @GET("users")
-    suspend fun getAllUser():BasicDRO
+    suspend fun getAllUser() : BasicDRO
 
     @POST("login")
     suspend fun login(
@@ -40,4 +45,16 @@ interface ApiService {
     suspend fun getLandingPage(
         @Header("Authorization") token: String
     ): landingPageDRO
+
+    @PUT("/pasien/profile/update-profile")
+    suspend fun updateProfilePasien(
+        @Header("Authorization") token: String,
+        @Body dataPasien : updateProfilePasienDTO
+    ): BasicDMLDRO
+
+    @PUT("/pasien/profile/update-user")
+    suspend fun updatePasswordPasien(
+        @Header("Authorization") token: String,
+        @Body dataPasien : updatePasswordPasienDTO
+    ): BasicDMLDRO
 }

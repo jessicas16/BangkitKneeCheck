@@ -26,13 +26,6 @@ data class registerDokterDTO(
     val hospital: String,
 )
 
-data class updateProfilePasienDTO(
-    val nama: String,
-    val jenisKelamin: String,
-    val domisili: String,
-    val tanggalLahir: String
-)
-
 data class updateProfileDokterDTO(
     val nama: String,
     val jenisKelamin: String,
@@ -40,3 +33,15 @@ data class updateProfileDokterDTO(
     val instansi: String
 )
 
+data class updatePasswordPasienDTO(
+    val email: String,
+    val password: String,
+    val verifyPassword: String
+)
+
+data class updateProfilePasienDTO(
+    val name: String,
+    val gender: String,
+    val birth: String,
+    val address: String
+)
