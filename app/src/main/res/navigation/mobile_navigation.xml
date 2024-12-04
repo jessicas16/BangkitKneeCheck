@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_dashboard">
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.example.kneecheck.dokter.DashboardFragment"
+        android:label="Scan"
+        tools:layout="@layout/fragment_scan" />
+
+    <fragment
+        android:id="@+id/navigation_scan"
+        android:name="com.example.kneecheck.dokter.ScanFragment"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+
+
+
+    <fragment
+        android:id="@+id/navigation_history"
+        android:name="com.example.kneecheck.dokter.HistoryFragment"
+        android:label="History"
+        tools:layout="@layout/fragment_history" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.kneecheck.dokter.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_history" />
+</navigation>

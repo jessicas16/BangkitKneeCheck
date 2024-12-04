@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".pasien.LandingPageActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_landing_pasien"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="74dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/rectangle_landing_pasien"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="310dp"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/tombol_mulai_landing_pasien"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="706dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/inter_extrabold"
+        android:text="Osteoarthritis"
+        android:textSize="24sp"
+        android:layout_marginTop="352dp"/>
+
+    <TextView
+        android:layout_width="307dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="400dp"
+        android:fontFamily="@font/inter_light"
+        android:text="@string/osteoarthritis"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/inter_bold"
+        android:text="Jumlah kasus di Indonesia"
+        android:textSize="14sp"
+        android:layout_marginTop="522dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="560dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="Usia"
+        android:textColor="#FB1E00"
+        android:textSize="14sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="560dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="Keseluruhan"
+        android:textColor="#FB1E00"
+        android:textSize="14sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="265dp"
+        android:layout_marginTop="560dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="Jenis kelamin"
+        android:textColor="#FB1E00"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/usia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/inter_bold"
+        android:textSize="24sp"
+        android:layout_marginTop="620dp"/>
+
+    <TextView
+        android:id="@+id/total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="84dp"
+        android:fontFamily="@font/inter_bold"
+        android:textSize="24sp"
+        android:layout_marginTop="620dp"/>
+
+    <TextView
+        android:id="@+id/gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="305dp"
+        android:fontFamily="@font/inter_bold"
+        android:textSize="24sp"
+        android:layout_marginTop="620dp"/>
+
+</RelativeLayout>
