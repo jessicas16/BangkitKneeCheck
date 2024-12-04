@@ -50,10 +50,16 @@ class DashboardFragment : Fragment() {
 
         binding.tvNamaDokter.text = name
 
+        Log.d("TOKENNNN", token   )
         ioScope.launch {
-            val data = repo.getDashboard(token)
-            mainScope.launch {
-                Log.d("Dataaddasadasdasd", data.toString())
+            try{
+                val data = repo.getDashboard(token)
+                mainScope.launch {
+//                Log.d("Dataaddasadasdasd", data.toString())
+                }
+            } catch (e:Exception){
+                Log.e("Error API DASHBOARD", e.message.toString())
+                Log.e("Error API DASHBOARD2", e.toString())
             }
         }
 

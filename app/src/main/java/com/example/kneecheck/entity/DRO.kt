@@ -19,24 +19,24 @@ data class LoginDRO(
 data class dashboardDokter(
     val status: String,
     val message: String,
-    val data: dashboardDokterData
+    val data: dashboardDokterData?
 )
 
 data class dashboardDokterData(
     val age: ageData,
     val gender: genderData,
-    val totalScanned : Int,
-    val level : levelData
+    val totalScanned : Int?,
+    val label : levelData?
 )
 
 data class ageData(
-    val age: Int,
-    val total: Int
+    val average: String?,
+    val total: Int?
 )
 
 data class genderData(
-    val gender : String,
-    val total : Int
+    val average : String?,
+    val total : Int?
 )
 
 data class levelData(

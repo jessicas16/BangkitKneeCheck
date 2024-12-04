@@ -3,6 +3,7 @@ package com.example.kneecheck.config
 import android.util.Log
 import com.example.kneecheck.entity.BasicDRO
 import com.example.kneecheck.entity.LoginDRO
+import com.example.kneecheck.entity.dashboardDokter
 import com.example.kneecheck.entity.loginDTO
 import com.example.kneecheck.entity.registerDokterDTO
 import com.example.kneecheck.entity.registerPasienDTO
@@ -29,7 +30,8 @@ class DefaultRepo (
         return dataSourceRemote.registerDokter(user)
     }
 
-    suspend fun getDashboard(token: String): Any{
+    suspend fun getDashboard(token: String): dashboardDokter{
+        Log.e("DefaultRepo WOOEE", dataSourceRemote.getDashboard(token).toString())
         return dataSourceRemote.getDashboard(token)
     }
 
