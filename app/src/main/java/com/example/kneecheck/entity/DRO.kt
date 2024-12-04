@@ -94,7 +94,7 @@ data class predictData(
 data class HistoryPasienDRO(
     val status: String,
     val message: String,
-    val data: HistoryPasienData
+    val data: List<HistoryPasienData>
 )
 
 data class HistoryPasienData(
