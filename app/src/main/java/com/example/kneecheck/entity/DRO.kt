@@ -44,3 +44,25 @@ data class levelData(
     val kneePain : Int,
     val severeKneePain : Int,
 )
+
+data class landingPageDRO(
+    val status: String,
+    val message: String,
+    val data: landingPageData
+)
+
+data class landingPageData(
+    val totalScanned: Int,
+    val gender: genderDataLanding,
+    val age: ageDataLanding
+)
+
+data class genderDataLanding(
+    val average: String,
+    val total_kasus: Int
+)
+
+data class ageDataLanding(
+    val average: String,
+    val total_kasus: Int
+)

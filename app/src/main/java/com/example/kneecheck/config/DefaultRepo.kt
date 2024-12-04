@@ -4,6 +4,7 @@ import android.util.Log
 import com.example.kneecheck.entity.BasicDRO
 import com.example.kneecheck.entity.LoginDRO
 import com.example.kneecheck.entity.dashboardDokter
+import com.example.kneecheck.entity.landingPageDRO
 import com.example.kneecheck.entity.loginDTO
 import com.example.kneecheck.entity.registerDokterDTO
 import com.example.kneecheck.entity.registerPasienDTO
@@ -32,5 +33,9 @@ class DefaultRepo (
     suspend fun getDashboard(token: String): dashboardDokter{
         Log.e("DefaultRepo WOOEE", dataSourceRemote.getDashboard(token).toString())
         return dataSourceRemote.getDashboard(token)
+    }
+
+    suspend fun getLandingPage(token: String): landingPageDRO{
+        return dataSourceRemote.getLandingPage(token)
     }
 }

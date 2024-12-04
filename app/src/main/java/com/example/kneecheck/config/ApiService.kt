@@ -3,7 +3,7 @@ package com.example.kneecheck.config
 import com.example.kneecheck.entity.BasicDRO
 import com.example.kneecheck.entity.LoginDRO
 import com.example.kneecheck.entity.dashboardDokter
-import com.example.kneecheck.entity.dashboardDokterData
+import com.example.kneecheck.entity.landingPageDRO
 import com.example.kneecheck.entity.loginDTO
 import com.example.kneecheck.entity.registerDokterDTO
 import com.example.kneecheck.entity.registerPasienDTO
@@ -35,4 +35,9 @@ interface ApiService {
     suspend fun getDashboard(
         @Header("Authorization") token: String
     ): dashboardDokter
+
+    @GET("home")
+    suspend fun getLandingPage(
+        @Header("Authorization") token: String
+    ): landingPageDRO
 }

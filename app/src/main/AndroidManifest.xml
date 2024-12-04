@@ -23,6 +23,9 @@
             android:name=".PasienActivity"
             android:exported="false" />
         <activity
+            android:name=".pasien.LandingPageActivity"
+            android:exported="false" />
+        <activity
             android:name=".DokterActivity"
             android:exported="false" />
         <activity
