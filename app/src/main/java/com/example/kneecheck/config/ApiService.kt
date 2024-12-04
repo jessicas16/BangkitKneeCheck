@@ -2,6 +2,7 @@ package com.example.kneecheck.config
 
 import com.example.kneecheck.entity.BasicDMLDRO
 import com.example.kneecheck.entity.BasicDRO
+import com.example.kneecheck.entity.HistoryPasienDRO
 import com.example.kneecheck.entity.LoginDRO
 import com.example.kneecheck.entity.dashboardDokter
 import com.example.kneecheck.entity.landingPageDRO
@@ -67,4 +68,9 @@ interface ApiService {
         @Header("Authorization") token: String,
         @Part img: MultipartBody.Part,
     ): predictDRO
+    
+    @GET("/pasien/history")
+    suspend fun getHistoryPasien(
+        @Header("Authorization") token: String,
+    ): HistoryPasienDRO
 }

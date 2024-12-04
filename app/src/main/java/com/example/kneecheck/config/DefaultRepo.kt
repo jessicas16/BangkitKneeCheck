@@ -3,6 +3,8 @@ package com.example.kneecheck.config
 import android.util.Log
 import com.example.kneecheck.entity.BasicDMLDRO
 import com.example.kneecheck.entity.BasicDRO
+import com.example.kneecheck.entity.ErrorDRO
+import com.example.kneecheck.entity.HistoryPasienDRO
 import com.example.kneecheck.entity.LoginDRO
 import com.example.kneecheck.entity.dashboardDokter
 import com.example.kneecheck.entity.landingPageDRO
@@ -54,5 +56,9 @@ class DefaultRepo (
 
     suspend fun predict(token: String, img: MultipartBody.Part): predictDRO {
         return dataSourceRemote.predict(token, img)
+    }
+    
+    suspend fun getHistoryPasien(token: String): HistoryPasienDRO{
+        return dataSourceRemote.getHistoryPasien(token)
     }
 }

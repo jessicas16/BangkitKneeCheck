@@ -90,3 +90,19 @@ data class predictData(
     val img_path: String,
     val pengobatan: String,
 )
+
+data class HistoryPasienDRO(
+    val status: String,
+    val message: String,
+    val data: HistoryPasienData
+)
+
+data class HistoryPasienData(
+    val id_xray: String,
+    val id_scanner: String,
+    val id_pasien: String,
+    val img: String,
+    val confidence_score: Int,
+    val label: String,
+    val tgl_scan: String
+)
