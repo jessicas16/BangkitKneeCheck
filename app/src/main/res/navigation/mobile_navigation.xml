@@ -17,8 +17,6 @@
         android:label="Dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
-
-
     <fragment
         android:id="@+id/navigation_history"
         android:name="com.example.kneecheck.dokter.HistoryFragment"

@@ -1,5 +1,6 @@
 package com.example.kneecheck.dokter
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
@@ -35,6 +36,7 @@ class DashboardFragment : Fragment() {
     private lateinit var name :String
     private lateinit var token :String
 
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -55,7 +57,20 @@ class DashboardFragment : Fragment() {
             try{
                 val data = repo.getDashboard(token)
                 mainScope.launch {
-//                Log.d("Dataaddasadasdasd", data.toString())
+                    makePieChart(
+                        data.data.label.normal,
+                        data.data.label.kneePain,
+                        data.data.label.severeKneePain,
+                        data.data.totalScanned
+                    )
+
+                    binding.tvAverageUsia.text = data.data.age.average
+                    binding.tvTotalUsia.text = data.data.age.total.toString()
+
+                    binding.tvAverageGender.text = data.data.gender.average
+                    binding.tvTotalGender.text = data.data.gender.total.toString()
+
+                    binding.tvTotalData.text = data.data.totalScanned.toString()
                 }
             } catch (e:Exception){
                 Log.e("Error API DASHBOARD", e.message.toString())
@@ -63,12 +78,21 @@ class DashboardFragment : Fragment() {
             }
         }
 
-        makePieChart()
+
 
         return root
     }
 
-    fun makePieChart(){
+    fun makePieChart(
+        normal: Int,
+        kneePain: Int,
+        severeKneePain: Int,
+        totalScanned: Int
+    ){
+        val floatNormal = (normal*1f/totalScanned * 100f)
+        val floatKneePain = (kneePain*1f/totalScanned * 100f)
+        val floatSevereKneePain = (severeKneePain*1f/totalScanned * 100f)
+
         pieChart = binding.pieChart
         pieChart.setUsePercentValues(true)
         pieChart.getDescription().setEnabled(false)
@@ -85,10 +109,10 @@ class DashboardFragment : Fragment() {
         pieChart.setEntryLabelColor(Color.WHITE)
         pieChart.setEntryLabelTextSize(12f)
         val entries: ArrayList<PieEntry> = ArrayList()
-        entries.add(PieEntry(70f))
-        entries.add(PieEntry(20f))
-        entries.add(PieEntry(10f))
-        val dataSet = PieDataSet(entries, "Mobile OS")
+        entries.add(PieEntry(floatNormal))
+        entries.add(PieEntry(floatKneePain))
+        entries.add(PieEntry(floatSevereKneePain))
+        val dataSet = PieDataSet(entries, "Label")
         dataSet.setDrawIcons(false)
 
         dataSet.sliceSpace = 3f
@@ -96,7 +120,7 @@ class DashboardFragment : Fragment() {
         dataSet.selectionShift = 5f
 
         val colors: ArrayList<Int> = ArrayList()
-        colors.add(resources.getColor(R.color.purple_200))
+        colors.add(resources.getColor(R.color.blue))
         colors.add(resources.getColor(R.color.yellow))
         colors.add(resources.getColor(R.color.red))
 
@@ -104,7 +128,7 @@ class DashboardFragment : Fragment() {
 
         val data = PieData(dataSet)
         data.setValueFormatter(PercentFormatter())
-        data.setValueTextSize(15f)
+        data.setValueTextSize(20f)
         data.setValueTypeface(Typeface.DEFAULT_BOLD)
         data.setValueTextColor(Color.WHITE)
         pieChart.setData(data)
