@@ -20,6 +20,9 @@
         android:theme="@style/Theme.KneeCheck"
         tools:targetApi="31">
         <activity
+            android:name=".PasienActivity"
+            android:exported="false" />
+        <activity
             android:name=".DokterActivity"
             android:exported="false" />
         <activity
