@@ -63,6 +63,7 @@ class HistoryFragment : Fragment() {
                         bundle.putString("confidence_score", item.confidence_score.toString())
                         bundle.putString("label", item.label)
                         bundle.putString("tgl_scan", item.tgl_scan)
+                        bundle.putString("pengobatan", item.pengobatan)
                         bundle.putString("asal_activity", "dokter")
 
                         findNavController().navigate(R.id.action_navigation_history_to_detailHistoryFragment, bundle)

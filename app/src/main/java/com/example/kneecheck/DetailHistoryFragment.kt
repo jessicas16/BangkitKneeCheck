@@ -34,6 +34,7 @@ class DetailHistoryFragment : Fragment() {
         val label = arguments?.getString("label")
         val tgl_scan = arguments?.getString("tgl_scan")
         val asal_activity = arguments?.getString("asal_activity")
+        val pengobatan = arguments?.getString("pengobatan")
 
         val umur = 2024 - (birth?.substring(birth.length-4)?.toInt() ?: 0)
 
@@ -52,7 +53,7 @@ class DetailHistoryFragment : Fragment() {
             binding.tvLabelKeparahanDetailHistory.setTextColor(Color.parseColor("#FF0000"))
         }
 
-        binding.tvTipsPengobatanDetailHistory.text = label
+        binding.tvTipsPengobatanDetailHistory.text = pengobatan
 
         binding.btnBackToHistory.setOnClickListener {
             if(asal_activity == "dokter"){
