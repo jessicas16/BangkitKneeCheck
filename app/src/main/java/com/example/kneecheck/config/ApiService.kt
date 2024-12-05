@@ -9,6 +9,7 @@ import com.example.kneecheck.entity.landingPageDRO
 import com.example.kneecheck.entity.loginDTO
 import com.example.kneecheck.entity.predictDRO
 import com.example.kneecheck.entity.profileDokterDRO
+import com.example.kneecheck.entity.profilePasienDRO
 import com.example.kneecheck.entity.registerDokterDTO
 import com.example.kneecheck.entity.registerPasienDTO
 import com.example.kneecheck.entity.updatePasswordDokterDTO
@@ -69,6 +70,11 @@ interface ApiService {
         @Header("Authorization") token: String,
         @Body dataDokter : updatePasswordDokterDTO
     ): BasicDMLDRO
+
+    @GET("/pasien/profile")
+    suspend fun getPasienProfile(
+        @Header("Authorization") token: String,
+    ): profilePasienDRO
 
     @PUT("/pasien/profile/update-profile")
     suspend fun updateProfilePasien(

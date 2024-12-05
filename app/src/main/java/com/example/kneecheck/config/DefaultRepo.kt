@@ -11,6 +11,7 @@ import com.example.kneecheck.entity.landingPageDRO
 import com.example.kneecheck.entity.loginDTO
 import com.example.kneecheck.entity.predictDRO
 import com.example.kneecheck.entity.profileDokterDRO
+import com.example.kneecheck.entity.profilePasienDRO
 import com.example.kneecheck.entity.registerDokterDTO
 import com.example.kneecheck.entity.registerPasienDTO
 import com.example.kneecheck.entity.updatePasswordDokterDTO
@@ -48,6 +49,10 @@ class DefaultRepo (
         return dataSourceRemote.getLandingPage(token)
     }
 
+    suspend fun getProfilePasien(token: String): profilePasienDRO {
+        return dataSourceRemote.getPasienProfile(token)
+    }
+
     suspend fun updateProfilePasien(token: String, data: updateProfilePasienDTO): BasicDMLDRO{
         return dataSourceRemote.updateProfilePasien(token, data)
     }
@@ -69,7 +74,6 @@ class DefaultRepo (
     }
 
     suspend fun predict(token: String, img: MultipartBody.Part): predictDRO {
-        Log.e("DefaultRepo", dataSourceRemote.predict(token, img).toString())
         return dataSourceRemote.predict(token, img)
     }
     

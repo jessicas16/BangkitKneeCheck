@@ -137,3 +137,19 @@ data class profileDokterData(
     val email: String,
     val userType: String
 )
+
+data class profilePasienDRO(
+    val status: String,
+    val message: String,
+    val data: profilePasienData
+)
+
+data class profilePasienData(
+    val id_pasien: String,
+    val id_user: String,
+    val name: String,
+    val gender: String,
+    val birth: String,
+    val address: String,
+    val email: String,
+)
