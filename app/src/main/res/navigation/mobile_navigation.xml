@@ -8,14 +8,19 @@
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.kneecheck.dokter.DashboardFragment"
-        android:label="Scan"
-        tools:layout="@layout/fragment_scan" />
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_dashboard" >
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_scan"
         android:name="com.example.kneecheck.dokter.ScanFragment"
-        android:label="Dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:label="Scan"
+        tools:layout="@layout/fragment_scan" >
+        <action
+            android:id="@+id/action_navigation_scan_to_hasilPredictFragment"
+            app:destination="@id/hasilPredictFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_history"
@@ -27,5 +32,15 @@
         android:id="@+id/navigation_profile"
         android:name="com.example.kneecheck.dokter.ProfileFragment"
         android:label="Profile"
-        tools:layout="@layout/fragment_history" />
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/hasilPredictFragment"
+        android:name="com.example.kneecheck.dokter.HasilPredictFragment"
+        android:label="fragment_hasil_predict"
+        tools:layout="@layout/fragment_hasil_predict" >
+        <action
+            android:id="@+id/action_hasilPredictFragment_to_navigation_scan"
+            app:destination="@id/navigation_scan" />
+    </fragment>
 </navigation>

@@ -26,8 +26,8 @@ import kotlinx.coroutines.launch
 
 class DashboardFragment : Fragment() {
     private var _binding: FragmentDashboardBinding? = null
-    lateinit var pieChart: PieChart
     private val binding get() = _binding!!
+    lateinit var pieChart: PieChart
     private var repo: DefaultRepo = ApiConfiguration.defaultRepo
     private val ioScope: CoroutineScope = CoroutineScope(Dispatchers.IO)
     private val mainScope: CoroutineScope = CoroutineScope(Dispatchers.Main)
