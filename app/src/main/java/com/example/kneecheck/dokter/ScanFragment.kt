@@ -14,12 +14,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.foundation.content.MediaType
 import androidx.fragment.app.Fragment
 import com.example.kneecheck.config.ApiConfiguration
 import com.example.kneecheck.config.DefaultRepo
 import com.example.kneecheck.databinding.FragmentScanBinding
-import com.example.kneecheck.entity.loginDTO
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -45,6 +43,8 @@ class ScanFragment : Fragment() {
     private lateinit var token :String
     private lateinit var uriImage : Uri
 
+    private var hasilUpload:Boolean = false
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -61,10 +61,9 @@ class ScanFragment : Fragment() {
             uri?.let {
                 val resizedBitmap = resizeImage(uri, 500, 500)
                 binding.imgForPreview.setImageBitmap(resizedBitmap)
-
+                hasilUpload = true
                 uriImage = uri
                 getImageSize()
-                Log.e("URIIIIIII", uri.toString())
             }
         }
 
@@ -73,7 +72,11 @@ class ScanFragment : Fragment() {
         }
 
         binding.imgButtonScanFromDokter.setOnClickListener {
-            uploadImage()
+            if(hasilUpload){
+                uploadImage()
+            } else {
+                Toast.makeText(requireContext(), "Silahkan upload gambar XRay dahulu", Toast.LENGTH_SHORT).show()
+            }
         }
 
         return root
