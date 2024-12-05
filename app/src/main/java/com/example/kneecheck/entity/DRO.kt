@@ -106,3 +106,34 @@ data class HistoryPasienData(
     val label: String,
     val tgl_scan: String
 )
+
+data class HistoryDokterData(
+    val id_pasien: String,
+    val nama_pasien: String,
+    val jenis_kelamin: String,
+    val tanggal_lahir: String,
+    val kota_domisili: String,
+
+    val id_xray: String,
+    val img: String,
+    val confidence_score: Int,
+    val label: String,
+    val tgl_scan: String
+)
+
+data class profileDokterDRO(
+    val status: String,
+    val message: String,
+    val data: profileDokterData
+)
+
+data class profileDokterData(
+    val id_dokter: String,
+    val id_user: String,
+    val name: String,
+    val gender: String,
+    val address: String,
+    val hospital: String,
+    val email: String,
+    val userType: String
+)

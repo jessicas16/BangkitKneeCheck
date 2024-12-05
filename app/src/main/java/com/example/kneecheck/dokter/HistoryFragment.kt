@@ -10,6 +10,7 @@ import com.example.kneecheck.config.DefaultRepo
 import com.example.kneecheck.databinding.FragmentHistoryBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class HistoryFragment : Fragment() {
 
@@ -33,6 +34,10 @@ class HistoryFragment : Fragment() {
         id = requireActivity().intent.getStringExtra("id").toString()
         name = requireActivity().intent.getStringExtra("name").toString()
         token = requireActivity().intent.getStringExtra("token").toString()
+
+        ioScope.launch {
+
+        }
 
         return root
     }

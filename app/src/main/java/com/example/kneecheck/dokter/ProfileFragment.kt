@@ -43,6 +43,22 @@ class ProfileFragment : Fragment() {
         name = requireActivity().intent.getStringExtra("name").toString()
         token = requireActivity().intent.getStringExtra("token").toString()
 
+        ioScope.launch {
+            try{
+                val data = repo.getProfileDokter(token)
+                Log.d("Data Profile", data.toString())
+                mainScope.launch {
+                    binding.etNamaProfDokter.setText(data.data.name)
+                    binding.etGenderProfDokter.setText(data.data.gender)
+                    binding.etInstansiProfDokter.setText(data.data.hospital)
+                    binding.etKotaProfDokter.setText(data.data.address)
+                }
+            } catch (e:Exception){
+                Log.e("Error API Profile", e.message.toString())
+                Log.e("Error API Profile", e.toString())
+            }
+        }
+
         binding.ibUpdateProfDokter.setOnClickListener {
             ioScope.launch {
                 try{
