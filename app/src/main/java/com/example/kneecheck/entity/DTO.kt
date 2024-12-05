@@ -58,3 +58,22 @@ data class saveHistoryPasienDTO(
     val confidence_score: Int,
     val label: String
 )
+
+data class saveHistoryPasienBaruDTO(
+    val id_xray: String,
+    val img: String,
+    val confidence_score: Int,
+    val label: String,
+    val name: String,
+    val gender: String,
+    val birth: String,
+    val address: String
+)
+
+data class saveHistoryPasienLamaDTO(
+    val id_xray: String,
+    val img: String,
+    val confidence_score: Int,
+    val label: String,
+    val id_pasien: String
+)

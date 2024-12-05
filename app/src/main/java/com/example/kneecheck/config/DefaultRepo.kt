@@ -14,7 +14,9 @@ import com.example.kneecheck.entity.profileDokterDRO
 import com.example.kneecheck.entity.profilePasienDRO
 import com.example.kneecheck.entity.registerDokterDTO
 import com.example.kneecheck.entity.registerPasienDTO
+import com.example.kneecheck.entity.saveHistoryPasienBaruDTO
 import com.example.kneecheck.entity.saveHistoryPasienDTO
+import com.example.kneecheck.entity.saveHistoryPasienLamaDTO
 import com.example.kneecheck.entity.updatePasswordDokterDTO
 import com.example.kneecheck.entity.updatePasswordPasienDTO
 import com.example.kneecheck.entity.updateProfileDokterDTO
@@ -88,5 +90,13 @@ class DefaultRepo (
 
     suspend fun saveHistoryPasien(token: String, data: saveHistoryPasienDTO): BasicDMLDRO {
         return dataSourceRemote.saveHistoryPasien(token, data)
+    }
+
+    suspend fun saveHistoryPasienBaru(token: String, data: saveHistoryPasienBaruDTO): BasicDMLDRO {
+        return dataSourceRemote.saveNewPasienfromDokter(token, data)
+    }
+
+    suspend fun saveHistoryPasienLama(token: String, data: saveHistoryPasienLamaDTO): BasicDMLDRO {
+        return dataSourceRemote.saveHistoryPasienLamaDokter(token, data)
     }
 }

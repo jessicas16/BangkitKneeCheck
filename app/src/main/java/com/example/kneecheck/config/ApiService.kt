@@ -13,7 +13,9 @@ import com.example.kneecheck.entity.profileDokterDRO
 import com.example.kneecheck.entity.profilePasienDRO
 import com.example.kneecheck.entity.registerDokterDTO
 import com.example.kneecheck.entity.registerPasienDTO
+import com.example.kneecheck.entity.saveHistoryPasienBaruDTO
 import com.example.kneecheck.entity.saveHistoryPasienDTO
+import com.example.kneecheck.entity.saveHistoryPasienLamaDTO
 import com.example.kneecheck.entity.updatePasswordDokterDTO
 import com.example.kneecheck.entity.updatePasswordPasienDTO
 import com.example.kneecheck.entity.updateProfileDokterDTO
@@ -111,5 +113,17 @@ interface ApiService {
     suspend fun saveHistoryPasien(
         @Header("Authorization") token: String,
         @Body dataHistory : saveHistoryPasienDTO
+    ): BasicDMLDRO
+
+    @POST("/dokter/history/save-new-pasien")
+    suspend fun saveNewPasienfromDokter(
+        @Header("Authorization") token: String,
+        @Body dataHistory : saveHistoryPasienBaruDTO
+    ): BasicDMLDRO
+
+    @POST("/dokter/history/save")
+    suspend fun saveHistoryPasienLamaDokter(
+        @Header("Authorization") token: String,
+        @Body dataHistory : saveHistoryPasienLamaDTO
     ): BasicDMLDRO
 }
