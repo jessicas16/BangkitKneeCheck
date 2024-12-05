@@ -10,7 +10,9 @@ import com.example.kneecheck.entity.loginDTO
 import com.example.kneecheck.entity.predictDRO
 import com.example.kneecheck.entity.registerDokterDTO
 import com.example.kneecheck.entity.registerPasienDTO
+import com.example.kneecheck.entity.updatePasswordDokterDTO
 import com.example.kneecheck.entity.updatePasswordPasienDTO
+import com.example.kneecheck.entity.updateProfileDokterDTO
 import com.example.kneecheck.entity.updateProfilePasienDTO
 import okhttp3.MultipartBody
 import retrofit2.http.Body
@@ -49,6 +51,18 @@ interface ApiService {
     suspend fun getLandingPage(
         @Header("Authorization") token: String
     ): landingPageDRO
+
+    @PUT("/dokter/profile/update-profile")
+    suspend fun updateProfileDokter(
+        @Header("Authorization") token: String,
+        @Body dataDokter : updateProfileDokterDTO
+    ): BasicDMLDRO
+
+    @PUT("/dokter/profile/update-user")
+    suspend fun updatePasswordDokter(
+        @Header("Authorization") token: String,
+        @Body dataDokter : updatePasswordDokterDTO
+    ): BasicDMLDRO
 
     @PUT("/pasien/profile/update-profile")
     suspend fun updateProfilePasien(
