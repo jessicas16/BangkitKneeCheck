@@ -34,7 +34,7 @@ class HistoryDokterAdapter(
         val history = data[position]
 
         holder.tvTanggal.text = history.tgl_scan
-        holder.tvNama.text = history.id_pasien
+        holder.tvNama.text = history.name
         holder.tvSeverity.text = "Tingkat keparahan : " + history.confidence_score
         when(history.confidence_score){
             4 -> holder.tvSeverity.setTextColor(Color.RED)
