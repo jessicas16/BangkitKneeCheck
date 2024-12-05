@@ -11,6 +11,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.kneecheck.databinding.FragmentDetailHistoryBinding
 
 class DetailHistoryFragment : Fragment() {
@@ -62,6 +64,11 @@ class DetailHistoryFragment : Fragment() {
                 findNavController().navigate(R.id.action_detailHistoryFragment2_to_navigation_history_pasien)
             }
         }
+
+        Glide.with(requireContext())
+            .load(img)
+            .apply(RequestOptions().placeholder(R.drawable.logo))
+            .into(binding.ivGambarXray)
 
         return root
     }
