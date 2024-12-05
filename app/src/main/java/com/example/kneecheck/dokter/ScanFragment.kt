@@ -11,6 +11,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.content.MediaType
@@ -18,6 +19,7 @@ import androidx.fragment.app.Fragment
 import com.example.kneecheck.config.ApiConfiguration
 import com.example.kneecheck.config.DefaultRepo
 import com.example.kneecheck.databinding.FragmentScanBinding
+import com.example.kneecheck.entity.loginDTO
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -90,9 +92,14 @@ class ScanFragment : Fragment() {
 
     private fun uploadImage() {
         val file = uriToFile(uriImage)
-        val requestFile: RequestBody = file.asRequestBody("image/*".toMediaTypeOrNull())
+        val mimeType = getMimeType(file)
+        if (mimeType !in listOf("image/png", "image/jpeg", "image/jpg")) {
+            Toast.makeText(requireContext(), "Unsupported file format!", Toast.LENGTH_SHORT).show()
+            Log.e("Upload", "Unsupported file format!")
+            return
+        }
+        val requestFile: RequestBody = file.asRequestBody(mimeType.toMediaTypeOrNull())
         val body: MultipartBody.Part = MultipartBody.Part.createFormData("img", file.name, requestFile)
-
         ioScope.launch {
             try {
                 val response = repo.predict(token, body)
@@ -100,7 +107,7 @@ class ScanFragment : Fragment() {
                     Log.d("Upload", "Image uploaded: $response")
                 }
             } catch (e: Exception) {
-                Log.e("Upload", "Error uploading image: ${e.message}")
+                Log.e("Upload ERRORs", "Error uploading image: ${e.message}")
             }
         }
     }
@@ -123,6 +130,15 @@ class ScanFragment : Fragment() {
         val fileSizeInMB = fileSizeInKB / 1024
         Log.d("Image Size", "Size: $fileSizeInBytes bytes ($fileSizeInKB KB, $fileSizeInMB MB)")
         return fileSizeInBytes
+    }
+
+    private fun getMimeType(file: File): String {
+        val extension = file.extension
+        return when (extension.lowercase()) {
+            "png" -> "image/png"
+            "jpg", "jpeg" -> "image/jpeg"
+            else -> "unknown"
+        }
     }
 
 
