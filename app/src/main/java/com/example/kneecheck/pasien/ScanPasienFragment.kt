@@ -12,6 +12,8 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.kneecheck.R
 import com.example.kneecheck.config.ApiConfiguration
 import com.example.kneecheck.config.DefaultRepo
 import com.example.kneecheck.databinding.FragmentScanPasienBinding
@@ -107,6 +109,15 @@ class ScanPasienFragment : Fragment() {
                 val response = repo.predict(token, body)
                 mainScope.launch {
                     Log.d("Upload", "Image uploaded: $response")
+
+                    val bundle = Bundle()
+                    bundle.putInt("confidenceScore", response.data.confidenceScore)
+                    bundle.putString("label", response.data.label)
+                    bundle.putString("id_xray", response.data.id_xray)
+                    bundle.putString("img_path", response.data.img_path)
+                    bundle.putString("pengobatan", response.data.pengobatan)
+
+                    findNavController().navigate(R.id.action_navigation_scan_pasien_to_hasilPredictPasienFragment, bundle)
                 }
             } catch (e: Exception) {
                 Log.e("Upload", "Error uploading image: ${e.message}")

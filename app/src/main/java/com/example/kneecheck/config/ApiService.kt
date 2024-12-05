@@ -13,6 +13,7 @@ import com.example.kneecheck.entity.profileDokterDRO
 import com.example.kneecheck.entity.profilePasienDRO
 import com.example.kneecheck.entity.registerDokterDTO
 import com.example.kneecheck.entity.registerPasienDTO
+import com.example.kneecheck.entity.saveHistoryPasienDTO
 import com.example.kneecheck.entity.updatePasswordDokterDTO
 import com.example.kneecheck.entity.updatePasswordPasienDTO
 import com.example.kneecheck.entity.updateProfileDokterDTO
@@ -105,4 +106,10 @@ interface ApiService {
     suspend fun getHistoryDokter(
         @Header("Authorization") token: String,
     ): HistoryDokterDRO
+
+    @POST("/pasien/history/save")
+    suspend fun saveHistoryPasien(
+        @Header("Authorization") token: String,
+        @Body dataHistory : saveHistoryPasienDTO
+    ): BasicDMLDRO
 }

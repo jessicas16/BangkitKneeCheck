@@ -103,7 +103,7 @@ data class HistoryPasienData(
     val confidence_score: Int,
     val label: String,
     val tgl_scan: String,
-    val pengobatan: String
+//    val pengobatan: String
 )
 
 data class HistoryDokterDRO(

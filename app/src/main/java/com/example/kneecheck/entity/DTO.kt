@@ -51,3 +51,10 @@ data class updateProfileDokterDTO(
     val hospital: String,
     val address: String
 )
+
+data class saveHistoryPasienDTO(
+    val id_xray: String,
+    val img: String,
+    val confidence_score: Int,
+    val label: String
+)

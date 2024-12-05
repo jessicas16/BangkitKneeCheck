@@ -9,7 +9,11 @@
         android:id="@+id/navigation_scan_pasien"
         android:name="com.example.kneecheck.pasien.ScanPasienFragment"
         android:label="Scan Pasien"
-        tools:layout="@layout/fragment_scan_pasien" />
+        tools:layout="@layout/fragment_scan_pasien" >
+        <action
+            android:id="@+id/action_navigation_scan_pasien_to_hasilPredictPasienFragment"
+            app:destination="@id/hasilPredictPasienFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_history_pasien"
@@ -34,5 +38,14 @@
         <action
             android:id="@+id/action_detailHistoryFragment2_to_navigation_history_pasien"
             app:destination="@id/navigation_history_pasien" />
+    </fragment>
+    <fragment
+        android:id="@+id/hasilPredictPasienFragment"
+        android:name="com.example.kneecheck.pasien.HasilPredictPasienFragment"
+        android:label="fragment_hasil_predict_pasien"
+        tools:layout="@layout/fragment_hasil_predict_pasien" >
+        <action
+            android:id="@+id/action_hasilPredictPasienFragment_to_navigation_scan_pasien"
+            app:destination="@id/navigation_scan_pasien" />
     </fragment>
 </navigation>

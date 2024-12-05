@@ -51,7 +51,7 @@ class ProfilePasienFragment : Fragment() {
                 mainScope.launch {
                     binding.etNamaProfPas.setText(data.data.name)
                     binding.etGenderProfPasien.setText(data.data.gender)
-                    binding.etBirthProfPasien.setText(data.data.birth)
+                    binding.etBirthProfPasien.setText(data.data.birth.substring(0, 10))
                     binding.etKotaProfPasien.setText(data.data.address)
                 }
             } catch (e:Exception){
