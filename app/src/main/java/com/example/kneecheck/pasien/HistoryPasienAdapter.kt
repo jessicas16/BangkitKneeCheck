@@ -47,6 +47,10 @@ class HistoryPasienAdapter(
             .load(history.img)
             .apply(RequestOptions().placeholder(R.drawable.logo))
             .into(holder.xray)
+
+        holder.views.setOnClickListener {
+            onAllClickListener?.invoke(history)
+        }
     }
 
     override fun getItemCount(): Int {

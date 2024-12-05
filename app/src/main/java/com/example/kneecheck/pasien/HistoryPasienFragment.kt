@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.kneecheck.R
 import com.example.kneecheck.config.ApiConfiguration
 import com.example.kneecheck.config.DefaultRepo
 import com.example.kneecheck.databinding.FragmentHistoryPasienBinding
@@ -48,7 +50,22 @@ class HistoryPasienFragment : Fragment() {
                 mainScope.launch {
                     binding.rvHistoryPasien.layoutManager = LinearLayoutManager(context,
                         LinearLayoutManager.VERTICAL, false)
-                    histPasienAdapter = HistoryPasienAdapter(data.data)
+                    histPasienAdapter = HistoryPasienAdapter(data.data){ item ->
+                        val bundle = Bundle()
+                        bundle.putString("idPasien", item.id_pasien)
+                        bundle.putString("name", item.name)
+                        bundle.putString("gender", item.gender)
+                        bundle.putString("birth", item.birth)
+                        bundle.putString("address", item.address)
+                        bundle.putString("id_xray", item.id_xray)
+                        bundle.putString("img", item.img)
+                        bundle.putString("confidence_score", item.confidence_score.toString())
+                        bundle.putString("label", item.label)
+                        bundle.putString("tgl_scan", item.tgl_scan)
+                        bundle.putString("asal_activity", "pasien")
+
+                        findNavController().navigate(R.id.action_navigation_history_pasien_to_detailHistoryFragment2, bundle)
+                    }
                     binding.rvHistoryPasien.adapter = histPasienAdapter
                 }
             } catch (e:Exception){

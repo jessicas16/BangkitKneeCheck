@@ -26,7 +26,11 @@
         android:id="@+id/navigation_history"
         android:name="com.example.kneecheck.dokter.HistoryFragment"
         android:label="History"
-        tools:layout="@layout/fragment_history" />
+        tools:layout="@layout/fragment_history" >
+        <action
+            android:id="@+id/action_navigation_history_to_detailHistoryFragment"
+            app:destination="@id/detailHistoryFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_profile"
@@ -42,5 +46,14 @@
         <action
             android:id="@+id/action_hasilPredictFragment_to_navigation_scan"
             app:destination="@id/navigation_scan" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailHistoryFragment"
+        android:name="com.example.kneecheck.DetailHistoryFragment"
+        android:label="fragment_detail_history"
+        tools:layout="@layout/fragment_detail_history" >
+        <action
+            android:id="@+id/action_detailHistoryFragment_to_navigation_history"
+            app:destination="@id/navigation_history" />
     </fragment>
 </navigation>

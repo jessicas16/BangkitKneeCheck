@@ -117,7 +117,6 @@ data class HistoryDokterData(
     val gender: String,
     val birth: String,
     val address: String,
-
     val id_xray: String,
     val img: String,
     val confidence_score: Int,
