@@ -64,7 +64,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView44" />
 
     <TextView
-        android:id="@+id/textView46"
+        android:id="@+id/tvTanggalScanData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
@@ -74,24 +74,24 @@
         app:layout_constraintTop_toTopOf="@+id/imageView11" />
 
     <TextView
-        android:id="@+id/textView47"
+        android:id="@+id/tvLabelKeparahanData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="11dp"
         android:layout_marginTop="18dp"
         android:text=": Test"
         app:layout_constraintStart_toEndOf="@+id/textView44"
-        app:layout_constraintTop_toBottomOf="@+id/textView46" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTanggalScanData" />
 
     <TextView
-        android:id="@+id/textView48"
+        android:id="@+id/tvIdXrayData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="77dp"
         android:layout_marginTop="18dp"
         android:text=": Test"
         app:layout_constraintStart_toEndOf="@+id/textView45"
-        app:layout_constraintTop_toBottomOf="@+id/textView47" />
+        app:layout_constraintTop_toBottomOf="@+id/tvLabelKeparahanData" />
 
     <TextView
         android:id="@+id/textView49"
@@ -130,7 +130,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView14" />
 
     <TextView
-        android:id="@+id/textView50"
+        android:id="@+id/tvIdPasien"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
@@ -147,7 +147,7 @@
         android:layout_marginTop="14dp"
         android:text="Nama Lengkap"
         app:layout_constraintStart_toStartOf="@+id/imageView14"
-        app:layout_constraintTop_toBottomOf="@+id/textView50" />
+        app:layout_constraintTop_toBottomOf="@+id/tvIdPasien" />
 
     <TextView
         android:id="@+id/textView52"
@@ -180,53 +180,53 @@
         app:layout_constraintTop_toBottomOf="@+id/textView53" />
 
     <TextView
-        android:id="@+id/textView55"
+        android:id="@+id/tvIdPasienData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginTop="28dp"
         android:text=": ID Pasien"
-        app:layout_constraintStart_toEndOf="@+id/textView50"
+        app:layout_constraintStart_toEndOf="@+id/tvIdPasien"
         app:layout_constraintTop_toTopOf="@+id/imageView14" />
 
     <TextView
-        android:id="@+id/textView56"
+        android:id="@+id/tvNamaLengkapPasienData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="14dp"
         android:text=": Nama Lengkap"
         app:layout_constraintStart_toEndOf="@+id/textView51"
-        app:layout_constraintTop_toBottomOf="@+id/textView55" />
+        app:layout_constraintTop_toBottomOf="@+id/tvIdPasienData" />
 
     <TextView
-        android:id="@+id/textView57"
+        android:id="@+id/tvGenderPasienData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="19dp"
         android:layout_marginTop="14dp"
         android:text=": Jenis Kelamin"
         app:layout_constraintStart_toEndOf="@+id/textView52"
-        app:layout_constraintTop_toBottomOf="@+id/textView56" />
+        app:layout_constraintTop_toBottomOf="@+id/tvNamaLengkapPasienData" />
 
     <TextView
-        android:id="@+id/textView58"
+        android:id="@+id/tvBirthPasienData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
         android:layout_marginTop="14dp"
         android:text=": Tanggal Lahir"
         app:layout_constraintStart_toEndOf="@+id/textView53"
-        app:layout_constraintTop_toBottomOf="@+id/textView57" />
+        app:layout_constraintTop_toBottomOf="@+id/tvGenderPasienData" />
 
     <TextView
-        android:id="@+id/textView59"
+        android:id="@+id/tvAddressPasienData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="14dp"
         android:text=": Kota"
         app:layout_constraintStart_toEndOf="@+id/textView54"
-        app:layout_constraintTop_toBottomOf="@+id/textView58" />
+        app:layout_constraintTop_toBottomOf="@+id/tvBirthPasienData" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
