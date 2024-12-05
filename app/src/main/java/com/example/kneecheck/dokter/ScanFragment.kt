@@ -61,6 +61,8 @@ class ScanFragment : Fragment() {
                 binding.imgForPreview.setImageBitmap(resizedBitmap)
 
                 uriImage = uri
+                getImageSize()
+                Log.e("URIIIIIII", uri.toString())
             }
         }
 
@@ -69,20 +71,7 @@ class ScanFragment : Fragment() {
         }
 
         binding.imgButtonScanFromDokter.setOnClickListener {
-            ioScope.launch {
-                try {
-                    val file = uriToFile(uriImage, requireContext())
-                    val requestFile = file.asRequestBody("image/*".toMediaTypeOrNull())
-                    val part = MultipartBody.Part.createFormData("img", file.name, requestFile)
-
-                    val response = repo.predict(token, part)
-                    mainScope.launch {
-                        Log.e("Result PREDICT", response.toString())
-                    }
-                } catch (e: Exception) {
-                    Log.e("Error Predict", e.toString())
-                }
-            }
+            uploadImage()
         }
 
         return root
@@ -99,24 +88,43 @@ class ScanFragment : Fragment() {
         return null
     }
 
-    fun uriToFile(uri: Uri, context: Context): File {
-        val contentResolver = context.contentResolver
-        val file = File(context.cacheDir, "temp_${System.currentTimeMillis()}")
-        try {
-            val inputStream: InputStream? = contentResolver.openInputStream(uri)
-            val outputStream = FileOutputStream(file)
-            val buffer = ByteArray(1024)
-            var length: Int
-            while (inputStream!!.read(buffer).also { length = it } > 0) {
-                outputStream.write(buffer, 0, length)
+    private fun uploadImage() {
+        val file = uriToFile(uriImage)
+        val requestFile: RequestBody = file.asRequestBody("image/*".toMediaTypeOrNull())
+        val body: MultipartBody.Part = MultipartBody.Part.createFormData("img", file.name, requestFile)
+
+        ioScope.launch {
+            try {
+                val response = repo.predict(token, body)
+                mainScope.launch {
+                    Log.d("Upload", "Image uploaded: $response")
+                }
+            } catch (e: Exception) {
+                Log.e("Upload", "Error uploading image: ${e.message}")
             }
-            outputStream.close()
-            inputStream.close()
-        } catch (e: Exception) {
-            e.printStackTrace()
         }
+    }
+
+    private fun uriToFile(uri: Uri): File {
+        val contentResolver = requireContext().contentResolver
+        val inputStream: InputStream? = contentResolver.openInputStream(uri)
+        val file = File(requireContext().cacheDir, "img.png")
+        val outputStream = FileOutputStream(file)
+        inputStream?.copyTo(outputStream)
+        inputStream?.close()
+        outputStream.close()
         return file
     }
+
+    fun getImageSize(): Long {
+        val file = uriToFile(uriImage)
+        val fileSizeInBytes = file.length()
+        val fileSizeInKB = fileSizeInBytes / 1024
+        val fileSizeInMB = fileSizeInKB / 1024
+        Log.d("Image Size", "Size: $fileSizeInBytes bytes ($fileSizeInKB KB, $fileSizeInMB MB)")
+        return fileSizeInBytes
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

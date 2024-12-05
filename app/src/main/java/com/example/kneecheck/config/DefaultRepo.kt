@@ -12,7 +12,9 @@ import com.example.kneecheck.entity.loginDTO
 import com.example.kneecheck.entity.predictDRO
 import com.example.kneecheck.entity.registerDokterDTO
 import com.example.kneecheck.entity.registerPasienDTO
+import com.example.kneecheck.entity.updatePasswordDokterDTO
 import com.example.kneecheck.entity.updatePasswordPasienDTO
+import com.example.kneecheck.entity.updateProfileDokterDTO
 import com.example.kneecheck.entity.updateProfilePasienDTO
 import okhttp3.MultipartBody
 
@@ -38,7 +40,6 @@ class DefaultRepo (
     }
 
     suspend fun getDashboard(token: String): dashboardDokter{
-        Log.e("DefaultRepo WOOEE", dataSourceRemote.getDashboard(token).toString())
         return dataSourceRemote.getDashboard(token)
     }
 
@@ -54,7 +55,17 @@ class DefaultRepo (
         return dataSourceRemote.updatePasswordPasien(token, data)
     }
 
+    suspend fun updateProfileDokter(token: String, data: updateProfileDokterDTO): BasicDMLDRO{
+        return dataSourceRemote.updateProfileDokter(token, data)
+    }
+
+    suspend fun updatePasswordDokter(token: String, data: updatePasswordDokterDTO): BasicDMLDRO {
+        return dataSourceRemote.updatePasswordDokter(token, data)
+    }
+
+
     suspend fun predict(token: String, img: MultipartBody.Part): predictDRO {
+        Log.e("DefaultRepo", dataSourceRemote.predict(token, img).toString())
         return dataSourceRemote.predict(token, img)
     }
     
