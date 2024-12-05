@@ -102,7 +102,8 @@ data class HistoryPasienData(
     val img: String,
     val confidence_score: Int,
     val label: String,
-    val tgl_scan: String
+    val tgl_scan: String,
+    val pengobatan: String
 )
 
 data class HistoryDokterDRO(
@@ -121,7 +122,8 @@ data class HistoryDokterData(
     val img: String,
     val confidence_score: Int,
     val label: String,
-    val tgl_scan: String
+    val tgl_scan: String,
+    val pengobatan: String
 )
 
 data class profileDokterDRO(

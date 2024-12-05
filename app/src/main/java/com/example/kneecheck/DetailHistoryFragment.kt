@@ -45,11 +45,11 @@ class DetailHistoryFragment : Fragment() {
 
         binding.tvLabelKeparahanDetailHistory.text = confidence_score
         if(confidence_score == "0"){
-            binding.tvLabelKeparahanDetailHistory.setTextColor(Color.parseColor(Color.BLUE.toString()))
+            binding.tvLabelKeparahanDetailHistory.setTextColor(Color.parseColor("#00FF00"))
         } else if(confidence_score == "2"){
-            binding.tvLabelKeparahanDetailHistory.setTextColor(Color.parseColor(Color.YELLOW.toString()))
+            binding.tvLabelKeparahanDetailHistory.setTextColor(Color.parseColor("#FFA500"))
         } else if(confidence_score == "4"){
-            binding.tvLabelKeparahanDetailHistory.setTextColor(Color.parseColor(Color.RED.toString()))
+            binding.tvLabelKeparahanDetailHistory.setTextColor(Color.parseColor("#FF0000"))
         }
 
         binding.tvTipsPengobatanDetailHistory.text = label
