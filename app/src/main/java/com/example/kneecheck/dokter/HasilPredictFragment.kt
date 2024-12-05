@@ -51,13 +51,26 @@ class HasilPredictFragment : Fragment() {
         }
 
         binding.btnSimpanKeHistory.setOnClickListener {
-            withButtonCentered(root)
+            dialog(root, confidenceScore!!, label!!, id_xray!!, img_path!!, pengobatan!!)
         }
 
         return root
     }
 
-    fun withButtonCentered(view: View) {
+    private fun dialog(
+        view: View,
+        confidenceScore: Int,
+        label : String,
+        id_xray : String,
+        img_path : String,
+        pengobatan : String
+    ) {
+        val bundle = Bundle()
+        bundle.putInt("confidenceScore", confidenceScore)
+        bundle.putString("label", label)
+        bundle.putString("id_xray", id_xray)
+        bundle.putString("img_path", img_path)
+        bundle.putString("pengobatan", pengobatan)
 
         val alertDialog = AlertDialog.Builder(requireContext()).create()
         alertDialog.setMessage("Apakah pasien sudah punya akun?")
@@ -65,11 +78,15 @@ class HasilPredictFragment : Fragment() {
         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Sudah"
         ) { dialog, which ->
             dialog.dismiss()
+            //pindah ke halaman sudah
+            findNavController().navigate(R.id.action_hasilPredictFragment_to_pasienSudahPunyaAkunFragment, bundle)
         }
 
         alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Belum"
         ) { dialog, which ->
             dialog.dismiss()
+            //pindah ke halaman belum
+            findNavController().navigate(R.id.action_hasilPredictFragment_to_pasienBelumPunyaAkunFragment, bundle)
         }
         alertDialog.show()
 
@@ -79,6 +96,8 @@ class HasilPredictFragment : Fragment() {
         val layoutParams = btnPositive.layoutParams as LinearLayout.LayoutParams
         layoutParams.weight = 10f
         btnPositive.layoutParams = layoutParams
+        btnPositive.backgroundTintList = resources.getColorStateList(R.color.btnNo)
         btnNegative.layoutParams = layoutParams
+        btnNegative.backgroundTintList = resources.getColorStateList(R.color.btnYes)
     }
 }
