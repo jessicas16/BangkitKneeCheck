@@ -4,6 +4,7 @@ import android.util.Log
 import com.example.kneecheck.entity.BasicDMLDRO
 import com.example.kneecheck.entity.BasicDRO
 import com.example.kneecheck.entity.ErrorDRO
+import com.example.kneecheck.entity.HistoryDokterDRO
 import com.example.kneecheck.entity.HistoryPasienDRO
 import com.example.kneecheck.entity.LoginDRO
 import com.example.kneecheck.entity.dashboardDokter
@@ -79,5 +80,9 @@ class DefaultRepo (
     
     suspend fun getHistoryPasien(token: String): HistoryPasienDRO{
         return dataSourceRemote.getHistoryPasien(token)
+    }
+
+    suspend fun getHistoryDokter(token: String): HistoryDokterDRO{
+        return dataSourceRemote.getHistoryDokter(token)
     }
 }

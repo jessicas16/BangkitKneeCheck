@@ -107,12 +107,18 @@ data class HistoryPasienData(
     val tgl_scan: String
 )
 
+data class HistoryDokterDRO(
+    val status: String,
+    val message: String,
+    val data: List<HistoryDokterData>
+)
+
 data class HistoryDokterData(
     val id_pasien: String,
-    val nama_pasien: String,
-    val jenis_kelamin: String,
-    val tanggal_lahir: String,
-    val kota_domisili: String,
+    val name: String,
+    val gender: String,
+    val birth: String,
+    val address: String,
 
     val id_xray: String,
     val img: String,
