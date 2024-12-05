@@ -3,7 +3,6 @@ package com.example.kneecheck.config
 import android.util.Log
 import com.example.kneecheck.entity.BasicDMLDRO
 import com.example.kneecheck.entity.BasicDRO
-import com.example.kneecheck.entity.ErrorDRO
 import com.example.kneecheck.entity.HistoryDokterDRO
 import com.example.kneecheck.entity.HistoryPasienDRO
 import com.example.kneecheck.entity.LoginDRO

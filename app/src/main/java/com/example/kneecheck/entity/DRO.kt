@@ -9,11 +9,6 @@ data class BasicDRO(
     var data: Any?
 )
 
-data class ErrorDRO(
-    var status: String,
-    var message: String
-)
-
 data class BasicDMLDRO(
     var status : String,
     var message: String,
@@ -98,9 +93,12 @@ data class HistoryPasienDRO(
 )
 
 data class HistoryPasienData(
-    val id_xray: String,
-    val id_scanner: String,
     val id_pasien: String,
+    val name: String,
+    val gender: String,
+    val birth: String,
+    val address: String,
+    val id_xray: String,
     val img: String,
     val confidence_score: Int,
     val label: String,
