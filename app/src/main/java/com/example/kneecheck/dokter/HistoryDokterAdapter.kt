@@ -38,8 +38,8 @@ class HistoryDokterAdapter(
         holder.tvSeverity.text = "Tingkat keparahan : " + history.confidence_score
         when(history.confidence_score){
             4 -> holder.tvSeverity.setTextColor(Color.RED)
-            2 -> holder.tvSeverity.setTextColor(Color.YELLOW)
-            0 -> holder.tvSeverity.setTextColor(Color.BLUE)
+            2 -> holder.tvSeverity.setTextColor(Color.BLUE)
+            0 -> holder.tvSeverity.setTextColor(Color.GREEN)
         }
 
         Glide.with(holder.views)
