@@ -79,6 +79,9 @@
         <action
             android:id="@+id/action_pasienSudahPunyaAkunFragment_to_dataPasienDanHasilPredictFragment"
             app:destination="@id/dataPasienDanHasilPredictFragment" />
+        <action
+            android:id="@+id/action_pasienSudahPunyaAkunFragment_to_pasienBelumPunyaAkunFragment"
+            app:destination="@id/pasienBelumPunyaAkunFragment" />
     </fragment>
     <fragment
         android:id="@+id/dataPasienDanHasilPredictFragment"

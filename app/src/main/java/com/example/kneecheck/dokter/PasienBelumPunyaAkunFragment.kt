@@ -25,7 +25,7 @@ class PasienBelumPunyaAkunFragment : Fragment() {
         val pengobatan = arguments?.getString("pengobatan")!!
 
         binding.imageButton.setOnClickListener {
-            val name = binding.etNamaPasienBelumPunyaAkun.text.toString()
+            val name_pasien = binding.etNamaPasienBelumPunyaAkun.text.toString()
             val gender = binding.etGenderPasienBelumPunyaAkun.text.toString()
             val birth = binding.etBirthPasienBelumPunyaAkun.text.toString()
             val domisili = binding.etKotaPasienBelumPunyaAkun.text.toString()
@@ -37,7 +37,7 @@ class PasienBelumPunyaAkunFragment : Fragment() {
             bundle.putString("id_xray", id_xray)
             bundle.putString("img_path", img_path)
             bundle.putString("pengobatan", pengobatan)
-            bundle.putString("name", name)
+            bundle.putString("name_pasien", name_pasien)
             bundle.putString("gender", gender)
             bundle.putString("birth", birth)
             bundle.putString("address", domisili)

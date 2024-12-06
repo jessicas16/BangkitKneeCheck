@@ -93,7 +93,6 @@
             android:layout_marginBottom="20dp"
             android:background="@drawable/rounded_input"
             android:hint="Alamat email"
-            android:text="dokter3@gmail.com"
             android:inputType="textEmailAddress"
             android:paddingStart="18dp"
             android:textSize="15sp" />
@@ -105,7 +104,6 @@
             android:layout_marginBottom="16dp"
             android:background="@drawable/rounded_input"
             android:hint="Kata sandi"
-            android:text="123"
             android:inputType="textPassword"
             android:paddingStart="18dp"
             android:textSize="15sp" />

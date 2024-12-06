@@ -14,6 +14,7 @@ import com.example.kneecheck.config.ApiConfiguration
 import com.example.kneecheck.config.DefaultRepo
 import com.example.kneecheck.databinding.FragmentDataPasienDanHasilPredictBinding
 import com.example.kneecheck.entity.saveHistoryPasienBaruDTO
+import com.example.kneecheck.entity.saveHistoryPasienLamaDTO
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -47,7 +48,7 @@ class DataPasienDanHasilPredictFragment : Fragment() {
         val id_xray = arguments?.getString("id_xray")
         val img_path = arguments?.getString("img_path")
         val pengobatan = arguments?.getString("pengobatan")
-        val name = arguments?.getString("name")
+        val namePasien = arguments?.getString("name_pasien")
         val gender = arguments?.getString("gender")
         val birth = arguments?.getString("birth")
         val address = arguments?.getString("address")
@@ -64,7 +65,7 @@ class DataPasienDanHasilPredictFragment : Fragment() {
             binding.tvIdPasienData.text = arguments?.getString("id_pasien")
         }
 
-        binding.tvNamaLengkapPasienData.text = name
+        binding.tvNamaLengkapPasienData.text = namePasien
         binding.tvBirthPasienData.text = birth
         binding.tvGenderPasienData.text = gender
         binding.tvAddressPasienData.text = address
@@ -78,7 +79,7 @@ class DataPasienDanHasilPredictFragment : Fragment() {
                             img = img_path!!,
                             confidence_score = confidenceScore!!,
                             label = label!!,
-                            name = name!!,
+                            name = namePasien!!,
                             gender = gender!!,
                             birth = birth!!,
                             address = address!!
@@ -103,7 +104,35 @@ class DataPasienDanHasilPredictFragment : Fragment() {
                     }
                 }
             } else {
-                //save data pasien baru
+                //save data pasien lama
+                ioScope.launch {
+                    try {
+                        val data = saveHistoryPasienLamaDTO(
+                            id_xray = id_xray!!,
+                            img = img_path!!,
+                            confidence_score = confidenceScore!!,
+                            label = label!!,
+                            id_pasien = arguments?.getString("id_pasien")!!,
+                        )
+                        val res = repo.saveHistoryPasienLama(token, data)
+                        mainScope.launch {
+                            Log.d("Save History Pasien", res.toString())
+                            Toast.makeText(
+                                requireContext(),
+                                "Data Pasien Berhasil Disimpan",
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                            //kembali ke halaman scan awal
+                            findNavController().navigate(R.id.action_dataPasienDanHasilPredictFragment_to_navigation_scan)
+                        }
+                    } catch (e: Exception) {
+                        Log.e("Error Simpan Data Ke History", e.message.toString())
+                        mainScope.launch {
+                            Log.e("Error Simpan Data Ke History", e.message.toString())
+                        }
+                    }
+                }
             }
         }
 

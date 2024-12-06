@@ -7,6 +7,7 @@ import com.example.kneecheck.entity.HistoryDokterDRO
 import com.example.kneecheck.entity.HistoryPasienDRO
 import com.example.kneecheck.entity.LoginDRO
 import com.example.kneecheck.entity.dashboardDokter
+import com.example.kneecheck.entity.getAllPasienDRO
 import com.example.kneecheck.entity.landingPageDRO
 import com.example.kneecheck.entity.loginDTO
 import com.example.kneecheck.entity.predictDRO
@@ -98,5 +99,9 @@ class DefaultRepo (
 
     suspend fun saveHistoryPasienLama(token: String, data: saveHistoryPasienLamaDTO): BasicDMLDRO {
         return dataSourceRemote.saveHistoryPasienLamaDokter(token, data)
+    }
+
+    suspend fun getAllPasien(token: String): getAllPasienDRO {
+        return dataSourceRemote.getAllPasien(token)
     }
 }

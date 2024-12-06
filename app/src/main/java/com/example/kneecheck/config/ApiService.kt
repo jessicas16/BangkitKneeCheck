@@ -6,6 +6,7 @@ import com.example.kneecheck.entity.HistoryDokterDRO
 import com.example.kneecheck.entity.HistoryPasienDRO
 import com.example.kneecheck.entity.LoginDRO
 import com.example.kneecheck.entity.dashboardDokter
+import com.example.kneecheck.entity.getAllPasienDRO
 import com.example.kneecheck.entity.landingPageDRO
 import com.example.kneecheck.entity.loginDTO
 import com.example.kneecheck.entity.predictDRO
@@ -126,4 +127,9 @@ interface ApiService {
         @Header("Authorization") token: String,
         @Body dataHistory : saveHistoryPasienLamaDTO
     ): BasicDMLDRO
+
+    @GET("pasien")
+    suspend fun getAllPasien(
+        @Header("Authorization") token: String
+    ) : getAllPasienDRO
 }

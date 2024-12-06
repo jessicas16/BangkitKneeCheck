@@ -158,3 +158,19 @@ data class profilePasienData(
     val address: String,
     val email: String,
 )
+
+data class getAllPasienDRO(
+    val status: String,
+    val message: String,
+    val data: List<pasienData>
+)
+
+data class pasienData(
+    val id_pasien: String,
+    val id_user: String,
+    val name: String,
+    val gender: String,
+    val birth: String,
+    val address: String,
+    val email: String,
+)

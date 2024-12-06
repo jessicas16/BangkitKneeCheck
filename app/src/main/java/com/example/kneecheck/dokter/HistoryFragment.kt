@@ -48,8 +48,7 @@ class HistoryFragment : Fragment() {
                 val data = repo.getHistoryDokter(token)
                 Log.d("DATAAA HISTORY DOKTER", data.toString())
                 mainScope.launch {
-                    binding.rvHistoryDokter.layoutManager = LinearLayoutManager(context,
-                        LinearLayoutManager.VERTICAL, false)
+                    binding.rvHistoryDokter.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
                     histDokterAdapter = HistoryDokterAdapter(data.data) { item ->
                         //pindah ke halaman history detail
                         val bundle = Bundle()
