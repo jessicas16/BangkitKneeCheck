@@ -19,9 +19,6 @@ import kotlinx.coroutines.launch
 
 class HasilPredictFragment : Fragment() {
     private lateinit var binding : FragmentHasilPredictBinding
-    private var repo: DefaultRepo = ApiConfiguration.defaultRepo
-    private val ioScope: CoroutineScope = CoroutineScope(Dispatchers.IO)
-    private val mainScope: CoroutineScope = CoroutineScope(Dispatchers.Main)
 
     private lateinit var id :String
     private lateinit var name :String

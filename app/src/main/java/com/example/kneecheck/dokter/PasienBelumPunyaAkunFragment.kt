@@ -14,7 +14,7 @@ class PasienBelumPunyaAkunFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentPasienBelumPunyaAkunBinding.inflate(inflater, container, false)
         val root = binding.root
 
