@@ -49,10 +49,13 @@ class DetailHistoryFragment : Fragment() {
         binding.tvLabelKeparahanDetailHistory.text = confidence_score
         if(confidence_score == "0"){
             binding.tvLabelKeparahanDetailHistory.setTextColor(Color.parseColor("#00FF00"))
+            binding.tvInfoSeverity.text = "Normal"
         } else if(confidence_score == "2"){
             binding.tvLabelKeparahanDetailHistory.setTextColor(Color.parseColor("#FFA500"))
+            binding.tvInfoSeverity.text = "Knee Pain"
         } else if(confidence_score == "4"){
             binding.tvLabelKeparahanDetailHistory.setTextColor(Color.parseColor("#FF0000"))
+            binding.tvInfoSeverity.text = "Severe Knee"
         }
 
         binding.tvTipsPengobatanDetailHistory.text = pengobatan

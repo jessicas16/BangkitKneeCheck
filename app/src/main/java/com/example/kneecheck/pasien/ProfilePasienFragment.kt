@@ -61,6 +61,32 @@ class ProfilePasienFragment : Fragment() {
         }
 
         binding.ibUpdateProfPasien.setOnClickListener {
+            val name = binding.etNamaProfPas.text.toString()
+            val gender = binding.etGenderProfPasien.text.toString()
+            val tglLahir = binding.etBirthProfPasien.text.toString()
+            val address = binding.etKotaProfPasien.text.toString()
+
+            if (name.isEmpty()) {
+                binding.etNamaProfPas.error = "Nama tidak boleh kosong"
+                binding.etNamaProfPas.requestFocus()
+                return@setOnClickListener
+            }
+            if (gender.isEmpty()) {
+                binding.etGenderProfPasien.error = "Jenis Kelamin tidak boleh kosong"
+                binding.etGenderProfPasien.requestFocus()
+                return@setOnClickListener
+            }
+            if (tglLahir.isEmpty()) {
+                binding.etBirthProfPasien.error = "Tanggal Lahir tidak boleh kosong"
+                binding.etBirthProfPasien.requestFocus()
+                return@setOnClickListener
+            }
+            if (address.isEmpty()) {
+                binding.etKotaProfPasien.error = "Kota Domisili tidak boleh kosong"
+                binding.etKotaProfPasien.requestFocus()
+                return@setOnClickListener
+            }
+
             ioScope.launch {
                 try{
                     val updatedData = updateProfilePasienDTO(
@@ -89,6 +115,26 @@ class ProfilePasienFragment : Fragment() {
         }
 
         binding.ibUpdatePassProfPasien.setOnClickListener {
+            val email = binding.etEmailProfPasien.text.toString()
+            val password = binding.etPasswordProfPasien.text.toString()
+            val verifypassword = binding.etVerifPassProfPasien.text.toString()
+
+            if (email.isEmpty()) {
+                binding.etEmailProfPasien.error = "Email tidak boleh kosong"
+                binding.etEmailProfPasien.requestFocus()
+                return@setOnClickListener
+            }
+            if (password.isEmpty()) {
+                binding.etPasswordProfPasien.error = "Password tidak boleh kosong"
+                binding.etPasswordProfPasien.requestFocus()
+                return@setOnClickListener
+            }
+            if (verifypassword.isEmpty()) {
+                binding.etVerifPassProfPasien.error = "Verify Password tidak boleh kosong"
+                binding.etVerifPassProfPasien.requestFocus()
+                return@setOnClickListener
+            }
+
             ioScope.launch {
                 try{
                     val updatedData = updatePasswordPasienDTO(
