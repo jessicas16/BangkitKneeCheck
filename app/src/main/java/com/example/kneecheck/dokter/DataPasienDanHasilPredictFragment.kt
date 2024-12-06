@@ -70,37 +70,43 @@ class DataPasienDanHasilPredictFragment : Fragment() {
         binding.tvAddressPasienData.text = address
 
         binding.ibSimpanKeHistoryDataPasien.setOnClickListener {
-            //save to db
-            ioScope.launch {
-                try {
-                    val data = saveHistoryPasienBaruDTO(
-                        id_xray = id_xray!!,
-                        img = img_path!!,
-                        confidence_score = confidenceScore!!,
-                        label = label!!,
-                        name = name!!,
-                        gender = gender!!,
-                        birth = birth!!,
-                        address = address!!
-                    )
-                    val res = repo.saveHistoryPasienBaru(token, data)
-                    mainScope.launch {
-                        Log.d("Save History Pasien", res.toString())
-                        Toast.makeText(requireContext(), "Data Pasien Berhasil Disimpan", Toast.LENGTH_SHORT).show()
+            if(akun == "belum") {
+                ioScope.launch {
+                    try {
+                        val data = saveHistoryPasienBaruDTO(
+                            id_xray = id_xray!!,
+                            img = img_path!!,
+                            confidence_score = confidenceScore!!,
+                            label = label!!,
+                            name = name!!,
+                            gender = gender!!,
+                            birth = birth!!,
+                            address = address!!
+                        )
+                        val res = repo.saveHistoryPasienBaru(token, data)
+                        mainScope.launch {
+                            Log.d("Save History Pasien", res.toString())
+                            Toast.makeText(
+                                requireContext(),
+                                "Data Pasien Berhasil Disimpan",
+                                Toast.LENGTH_SHORT
+                            ).show()
 
-                        //kembali ke halaman scan awal
-                        findNavController().navigate(R.id.action_dataPasienDanHasilPredictFragment_to_navigation_scan)
-                    }
-                } catch (e:Exception){
-                    Log.e("Error Simpan Data Ke History", e.message.toString())
-                    mainScope.launch {
+                            //kembali ke halaman scan awal
+                            findNavController().navigate(R.id.action_dataPasienDanHasilPredictFragment_to_navigation_scan)
+                        }
+                    } catch (e: Exception) {
                         Log.e("Error Simpan Data Ke History", e.message.toString())
+                        mainScope.launch {
+                            Log.e("Error Simpan Data Ke History", e.message.toString())
+                        }
                     }
                 }
+            } else {
+                //save data pasien baru
             }
         }
 
         return root
     }
-
 }
