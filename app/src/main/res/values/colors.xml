@@ -11,8 +11,8 @@
     <color name="button_color">#1E573B</color>
     <color name="btnYes">#89E0B4</color>
     <color name="btnNo">#E6847D</color>
-    <color name="yellow">#DBC600</color>
+    <color name="yellow">#0D1AD0</color>
     <color name="red">#F44336</color>
-    <color name="blue">#486AFA</color>
+    <color name="blue">#0EAD20</color>
 
 </resources>
