@@ -48,6 +48,7 @@ class HistoryPasienFragment : Fragment() {
             try{
                 val data = repo.getHistoryPasien(token)
                 mainScope.launch {
+                    Log.d("Data History Pasien", data.toString())
                     binding.rvHistoryPasien.layoutManager = LinearLayoutManager(context,
                         LinearLayoutManager.VERTICAL, false)
                     histPasienAdapter = HistoryPasienAdapter(data.data){ item ->

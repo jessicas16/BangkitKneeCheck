@@ -81,7 +81,7 @@
             android:background="@drawable/rounded_input2"
             android:fontFamily="@font/inter"
             android:hint="Tanggal lahir"
-            android:inputType="date"
+            android:inputType="text"
             android:minHeight="48dp"
             android:paddingStart="18dp"
             android:textSize="12sp" />
@@ -111,7 +111,7 @@
             android:background="@drawable/rounded_input2"
             android:fontFamily="@font/inter"
             android:hint="Alamat Email"
-            android:inputType="textPersonName"
+            android:inputType="textEmailAddress"
             android:minHeight="48dp"
             android:paddingStart="18dp"
             android:textSize="12sp" />
